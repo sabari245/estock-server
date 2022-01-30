@@ -8,12 +8,15 @@ import numpy as np
 from flask import Flask, request, jsonify
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 load_dotenv()
 
 TOKEN = os.getenv('TOKEN')
 
 app = Flask(__name__)
+
+CORS(app, origins=["http://localhost:3000"])
 
 @app.route('/search')
 def search():
